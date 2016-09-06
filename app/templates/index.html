@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}草榴游客搜索系统{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>欢迎来到草榴游客搜索系统!</h1>
+</div>
+{% if current_user.is_authenticated %}
+<li><a href="{{ domain_name }}" target="_blank">获取草榴最新网址</a></li>
+<li><a href="{{ url_for('main.jishu') }}" target="_blank">查询技术讨论区帖子</a></li>
+<li><a href="{{ url_for('main.dagaier') }}" target="_blank">查询达盖尔区帖子</a></li>
+
+{% else %}
+
+<p>请点击右上角登陆</p>      
+
+
+
+
+{% endif %}
+{% endblock %}

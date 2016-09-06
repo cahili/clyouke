@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}查询技术讨论区标题{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>请在下面表单内输入标题关键字!</h1>
+</div>
+{{ wtf.quick_form(form) }}
+{% if result %}
+
+
+<table class="table table-striped">
+  <tr>
+    <th>id</th>
+    <th>title</th>
+  </tr>
+   {% for res in result %}
+<tr>
+  <td>{{ res.id }}</td>
+  <td><a href="{{ domain_name + res.link }}">{{ res.title }}</a></td>
+</tr>
+
+
+   {% endfor %}
+
+</table>
+
+ 
+
+{% endif %}
+{% endblock %}
